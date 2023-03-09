@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.30"
+    ComputedModelVersion    "1.40"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -44,8 +44,8 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "student"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Mar 02 16:48:24 2023"
-  ModelVersionFormat	  "1.%<AutoIncrement:30>"
+  LastModifiedDate	  "Thu Mar 09 15:52:47 2023"
+  ModelVersionFormat	  "1.%<AutoIncrement:40>"
   ConfigurationManager	  "None"
   SimulationMode	  "normal"
   LinearizationMsg	  "none"
@@ -498,6 +498,13 @@ Model {
       VectorParams1D	      on
     }
     Block {
+      BlockType		      Display
+      Format		      "short"
+      Decimation	      "10"
+      Floating		      off
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      Gain
       Gain		      "1"
       Multiplication	      "Element-wise(K.*u)"
@@ -602,7 +609,7 @@ Model {
   }
   System {
     Name		    "lab3allpass"
-    Location		    [963, 83, 1917, 1001]
+    Location		    [823, 109, 1777, 1003]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -614,7 +621,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "80"
+    ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
     Block {
       BlockType		      Reference
@@ -670,6 +677,42 @@ Model {
       Name		      "A in"
       Ports		      [1, 1]
       Position		      [440, 340, 505, 360]
+      SourceBlock	      "xbsIndex_r4/Gateway In"
+      SourceType	      "Xilinx Gateway In Block"
+      infoedit		      "Gateway in block.  Converts inputs of type Simu"
+"link integer, double and fixed point to  Xilinx fixed point type.<P><P>Hardwa"
+"re notes:  In hardware these blocks become top level input ports."
+      arith_type	      "Signed  (2's comp)"
+      n_bits		      "16"
+      bin_pt		      "14"
+      quantization	      "Round  (unbiased: +/- Inf)"
+      overflow		      "Saturate"
+      period		      "1"
+      dbl_ovrd		      off
+      timing_constraint	      "None"
+      locs_specified	      off
+      LOCs		      "{}"
+      xl_use_area	      off
+      xl_area		      "[0,0,0,0,0,0,0]"
+      has_advanced_control    "0"
+      sggui_pos		      "20,20,356,423"
+      block_type	      "gatewayin"
+      block_version	      "9.2.00"
+      sg_icon_stat	      "65,20,1,1,white,yellow,0,4bb76ffd"
+      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npa"
+"tch([0 65 65 0 ],[0 0 20 20 ],[0.95 0.93 0.65]);\npatch([27 24 29 24 27 32 33"
+" 34 40 36 32 29 34 29 32 36 40 34 33 32 27 ],[2 5 10 15 18 18 17 18 18 14 18 "
+"15 10 5 2 6 2 2 3 2 2 ],[0.98 0.96 0.92]);\nplot([0 0 65 65 0 ],[0 20 20 0 0 "
+"]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin ic"
+"on text');\ncolor('black');port_label('input',1,'\\fontsize{11pt}\\bf In ','t"
+"exmode','on');\ncolor('black');port_label('output',1,' ');\nfprintf('','COMME"
+"NT: end icon text');\n"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "A in1"
+      Ports		      [1, 1]
+      Position		      [550, 485, 615, 505]
       SourceBlock	      "xbsIndex_r4/Gateway In"
       SourceType	      "Xilinx Gateway In Block"
       infoedit		      "Gateway in block.  Converts inputs of type Simu"
@@ -781,7 +824,7 @@ Model {
       BlockType		      Reference
       Name		      "AddSub2"
       Ports		      [2, 1]
-      Position		      [955, 196, 1015, 254]
+      Position		      [970, 196, 1030, 254]
       SourceBlock	      "xbsIndex_r4/AddSub"
       SourceType	      "Xilinx Adder/Subtractor Block"
       mode		      "Addition"
@@ -817,9 +860,47 @@ Model {
     }
     Block {
       BlockType		      Reference
+      Name		      "AddSub3"
+      Ports		      [2, 1]
+      Position		      [690, 561, 750, 619]
+      SourceBlock	      "xbsIndex_r4/AddSub"
+      SourceType	      "Xilinx Adder/Subtractor Block"
+      mode		      "Subtraction"
+      use_carryin	      off
+      use_carryout	      off
+      en		      off
+      latency		      "0"
+      precision		      "Full"
+      arith_type	      "Unsigned"
+      n_bits		      "16"
+      bin_pt		      "14"
+      quantization	      "Truncate"
+      overflow		      "Wrap"
+      dbl_ovrd		      off
+      use_behavioral_HDL      off
+      pipelined		      off
+      use_rpm		      on
+      xl_use_area	      off
+      xl_area		      "[0,0,0,0,0,0,0]"
+      has_advanced_control    "0"
+      sggui_pos		      "-1,-1,-1,-1"
+      block_type	      "addsub"
+      block_version	      "9.2.00"
+      sg_icon_stat	      "60,58,2,1,white,blue,0,f28631c4"
+      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npa"
+"tch([0 60 60 0 ],[0 0 58 58 ],[0.77 0.82 0.91]);\npatch([15 5 19 5 15 30 34 3"
+"8 54 41 29 20 34 20 29 41 54 38 34 30 15 ],[6 16 30 44 54 54 50 54 54 41 53 4"
+"4 30 16 7 19 6 6 10 6 6 ],[0.98 0.96 0.92]);\nplot([0 0 60 60 0 ],[0 58 58 0 "
+"0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin "
+"icon text');\ncolor('black');port_label('input',1,'a');\ncolor('black');port_"
+"label('input',2,'b');\ncolor('black');port_label('output',1,'\\bf{a - b}','te"
+"xmode','on');\nfprintf('','COMMENT: end icon text');\n"
+    }
+    Block {
+      BlockType		      Reference
       Name		      "CMult"
       Ports		      [1, 1]
-      Position		      [870, 220, 935, 280]
+      Position		      [870, 210, 935, 270]
       SourceBlock	      "xbsIndex_r4/CMult"
       SourceType	      "Xilinx Constant Multiplier Block"
       const		      "-1"
@@ -856,6 +937,76 @@ Model {
     }
     Block {
       BlockType		      Reference
+      Name		      "Constant"
+      Ports		      [0, 1]
+      Position		      [560, 437, 615, 463]
+      SourceBlock	      "xbsIndex_r4/Constant"
+      SourceType	      "Xilinx Constant Block Block"
+      arith_type	      "Signed (2's comp)"
+      const		      ".5"
+      n_bits		      "16"
+      bin_pt		      "14"
+      explicit_period	      off
+      period		      "1"
+      dsp48_infoedit	      "The use of this block for DSP48 instructions is"
+" deprecated.  Please use the Opmode block."
+      equ		      "P=C"
+      opselect		      "C"
+      inp2		      "PCIN>>17"
+      opr		      "+"
+      inp1		      "P"
+      carry		      "CIN"
+      dbl_ovrd		      off
+      has_advanced_control    "0"
+      sggui_pos		      "-1,-1,-1,-1"
+      block_type	      "constant"
+      block_version	      "9.2.00"
+      sg_icon_stat	      "55,26,0,1,white,blue,0,c140adf0"
+      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npa"
+"tch([0 55 55 0 ],[0 0 26 26 ],[0.77 0.82 0.91]);\npatch([20 16 22 16 20 27 29"
+" 31 38 32 26 22 28 22 26 32 38 31 29 27 20 ],[3 7 13 19 23 23 21 23 23 17 23 "
+"19 13 7 3 9 3 3 5 3 3 ],[0.98 0.96 0.92]);\nplot([0 0 55 55 0 ],[0 26 26 0 0 "
+"]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin ic"
+"on text');\ncolor('black');port_label('output',1,'0.5');\nfprintf('','COMMENT"
+": end icon text');\n"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Constant1"
+      Ports		      [0, 1]
+      Position		      [560, 527, 615, 553]
+      SourceBlock	      "xbsIndex_r4/Constant"
+      SourceType	      "Xilinx Constant Block Block"
+      arith_type	      "Signed (2's comp)"
+      const		      "1"
+      n_bits		      "16"
+      bin_pt		      "14"
+      explicit_period	      off
+      period		      "1"
+      dsp48_infoedit	      "The use of this block for DSP48 instructions is"
+" deprecated.  Please use the Opmode block."
+      equ		      "P=C"
+      opselect		      "C"
+      inp2		      "PCIN>>17"
+      opr		      "+"
+      inp1		      "P"
+      carry		      "CIN"
+      dbl_ovrd		      off
+      has_advanced_control    "0"
+      sggui_pos		      "-1,-1,-1,-1"
+      block_type	      "constant"
+      block_version	      "9.2.00"
+      sg_icon_stat	      "55,26,0,1,white,blue,0,85613821"
+      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npa"
+"tch([0 55 55 0 ],[0 0 26 26 ],[0.77 0.82 0.91]);\npatch([20 16 22 16 20 27 29"
+" 31 38 32 26 22 28 22 26 32 38 31 29 27 20 ],[3 7 13 19 23 23 21 23 23 17 23 "
+"19 13 7 3 9 3 3 5 3 3 ],[0.98 0.96 0.92]);\nplot([0 0 55 55 0 ],[0 26 26 0 0 "
+"]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin ic"
+"on text');\ncolor('black');port_label('output',1,'1');\nfprintf('','COMMENT: "
+"end icon text');\n"
+    }
+    Block {
+      BlockType		      Reference
       Name		      "Delay"
       Ports		      [1, 1]
       Position		      [785, 102, 845, 158]
@@ -884,9 +1035,53 @@ Model {
     }
     Block {
       BlockType		      Reference
+      Name		      "Delay1"
+      Ports		      [1, 1]
+      Position		      [1275, 147, 1335, 203]
+      SourceBlock	      "xbsIndex_r4/Delay"
+      SourceType	      "Xilinx Delay Block"
+      infoedit		      "Hardware notes: A delay line is a chain, each l"
+"ink of which is an SRL16 followed by a flip-flop."
+      en		      off
+      latency		      "7"
+      dbl_ovrd		      off
+      reg_retiming	      off
+      xl_use_area	      off
+      xl_area		      "[0,0,0,0,0,0,0]"
+      has_advanced_control    "0"
+      sggui_pos		      "20,20,356,237"
+      block_type	      "delay"
+      block_version	      "9.2.00"
+      sg_icon_stat	      "60,56,1,1,white,blue,0,4c76d8d2"
+      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npa"
+"tch([0 60 60 0 ],[0 0 56 56 ],[0.77 0.82 0.91]);\npatch([15 6 19 6 15 30 34 3"
+"8 54 41 29 20 32 20 29 41 54 38 34 30 15 ],[6 15 28 41 50 50 46 50 50 37 49 4"
+"0 28 16 7 19 6 6 10 6 6 ],[0.98 0.96 0.92]);\nplot([0 0 60 60 0 ],[0 56 56 0 "
+"0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin "
+"icon text');\ncolor('black');disp('z^{-7}','texmode','on');\nfprintf('','COMM"
+"ENT: end icon text');\n"
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Display"
+      Ports		      [1]
+      Position		      [1285, 445, 1375, 475]
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Display1"
+      Ports		      [1]
+      Position		      [1325, 615, 1415, 645]
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Reference
       Name		      "Down Sample"
       Ports		      [1, 1]
-      Position		      [1265, 147, 1325, 203]
+      Position		      [1370, 147, 1430, 203]
       SourceBlock	      "xbsIndex_r4/Down Sample"
       SourceType	      "Xilinx Down Sampler Block"
       infoedit		      "Hardware notes: Sample and Latency controls det"
@@ -957,7 +1152,7 @@ Model {
       SourceType	      "Integer Delay"
       vinit		      "0.0"
       samptime		      "1"
-      NumDelays		      "1"
+      NumDelays		      "2"
     }
     Block {
       BlockType		      Reference
@@ -1049,7 +1244,7 @@ Model {
       BlockType		      Reference
       Name		      "Mux"
       Ports		      [3, 1]
-      Position		      [680, 388, 725, 492]
+      Position		      [1005, 383, 1050, 487]
       SourceBlock	      "xbsIndex_r4/Mux"
       SourceType	      "Xilinx Bus Multiplexer Block"
       inputs		      "2"
@@ -1083,7 +1278,7 @@ Model {
       BlockType		      Reference
       Name		      "Mux1"
       Ports		      [3, 1]
-      Position		      [685, 513, 730, 617]
+      Position		      [1005, 513, 1050, 617]
       SourceBlock	      "xbsIndex_r4/Mux"
       SourceType	      "Xilinx Bus Multiplexer Block"
       inputs		      "2"
@@ -1117,7 +1312,69 @@ Model {
       BlockType		      Reference
       Name		      "Out"
       Ports		      [1, 1]
-      Position		      [1345, 165, 1405, 185]
+      Position		      [1470, 165, 1530, 185]
+      SourceBlock	      "xbsIndex_r4/Gateway Out"
+      SourceType	      "Xilinx Gateway Out Block"
+      infoedit		      "Gateway out block.  Converts Xilinx fixed point"
+" inputs into ouputs of type Simulink integer, double, or fixed point.<P><P>Ha"
+"rdware notes:  In hardware these blocks become top level output ports or are "
+"discarded, depending on how they are configured."
+      hdl_port		      on
+      timing_constraint	      "None"
+      locs_specified	      off
+      LOCs		      "{}"
+      xl_use_area	      off
+      xl_area		      "[0,0,0,0,0,0,0]"
+      has_advanced_control    "0"
+      sggui_pos		      "20,20,356,347"
+      block_type	      "gatewayout"
+      block_version	      "9.2.00"
+      sg_icon_stat	      "60,20,1,1,white,yellow,0,f0cec300"
+      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npa"
+"tch([0 60 60 0 ],[0 0 20 20 ],[0.95 0.93 0.65]);\npatch([24 21 26 21 24 29 30"
+" 31 37 33 29 26 31 26 29 33 37 31 30 29 24 ],[2 5 10 15 18 18 17 18 18 14 18 "
+"15 10 5 2 6 2 2 3 2 2 ],[0.98 0.96 0.92]);\nplot([0 0 60 60 0 ],[0 20 20 0 0 "
+"]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin ic"
+"on text');\ncolor('black');port_label('input',1,' ');\ncolor('black');port_la"
+"bel('output',1,'\\fontsize{11pt}\\bf Out ','texmode','on');\nfprintf('','COMM"
+"ENT: end icon text');\n"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Out1"
+      Ports		      [1, 1]
+      Position		      [1180, 430, 1240, 450]
+      SourceBlock	      "xbsIndex_r4/Gateway Out"
+      SourceType	      "Xilinx Gateway Out Block"
+      infoedit		      "Gateway out block.  Converts Xilinx fixed point"
+" inputs into ouputs of type Simulink integer, double, or fixed point.<P><P>Ha"
+"rdware notes:  In hardware these blocks become top level output ports or are "
+"discarded, depending on how they are configured."
+      hdl_port		      on
+      timing_constraint	      "None"
+      locs_specified	      off
+      LOCs		      "{}"
+      xl_use_area	      off
+      xl_area		      "[0,0,0,0,0,0,0]"
+      has_advanced_control    "0"
+      sggui_pos		      "20,20,356,347"
+      block_type	      "gatewayout"
+      block_version	      "9.2.00"
+      sg_icon_stat	      "60,20,1,1,white,yellow,0,f0cec300"
+      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npa"
+"tch([0 60 60 0 ],[0 0 20 20 ],[0.95 0.93 0.65]);\npatch([24 21 26 21 24 29 30"
+" 31 37 33 29 26 31 26 29 33 37 31 30 29 24 ],[2 5 10 15 18 18 17 18 18 14 18 "
+"15 10 5 2 6 2 2 3 2 2 ],[0.98 0.96 0.92]);\nplot([0 0 60 60 0 ],[0 20 20 0 0 "
+"]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin ic"
+"on text');\ncolor('black');port_label('input',1,' ');\ncolor('black');port_la"
+"bel('output',1,'\\fontsize{11pt}\\bf Out ','texmode','on');\nfprintf('','COMM"
+"ENT: end icon text');\n"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Out2"
+      Ports		      [1, 1]
+      Position		      [1195, 580, 1255, 600]
       SourceBlock	      "xbsIndex_r4/Gateway Out"
       SourceType	      "Xilinx Gateway Out Block"
       infoedit		      "Gateway out block.  Converts Xilinx fixed point"
@@ -1171,6 +1428,33 @@ Model {
     }
     Block {
       BlockType		      Reference
+      Name		      "Relational"
+      Ports		      [2, 1]
+      Position		      [695, 482, 750, 538]
+      SourceBlock	      "xbsIndex_r4/Relational"
+      SourceType	      "Xilinx Arithmetic Relational Operator Block"
+      mode		      "a<b"
+      en		      off
+      latency		      "1"
+      dbl_ovrd		      off
+      xl_use_area	      off
+      xl_area		      "[0,0,0,0,0,0,0]"
+      has_advanced_control    "0"
+      sggui_pos		      "-1,-1,-1,-1"
+      block_type	      "relational"
+      block_version	      "9.2.00"
+      sg_icon_stat	      "55,56,2,1,white,blue,0,3ac94b81"
+      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npa"
+"tch([0 55 55 0 ],[0 0 56 56 ],[0.77 0.82 0.91]);\npatch([13 4 17 4 13 28 32 3"
+"6 52 40 28 19 32 19 28 40 52 36 32 28 13 ],[6 15 28 41 50 50 46 50 50 38 50 4"
+"1 28 15 6 18 6 6 10 6 6 ],[0.98 0.96 0.92]);\nplot([0 0 55 55 0 ],[0 56 56 0 "
+"0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin "
+"icon text');\ncolor('black');port_label('input',1,'a');\ncolor('black');port_"
+"label('input',2,'b');\ncolor('black');disp('\\newline\\bf{a<b}\\newlinez^{-1}"
+"','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
+    }
+    Block {
+      BlockType		      Reference
       Name		      "Slider\nGain"
       Ports		      [1, 1]
       Position		      [310, 295, 340, 325]
@@ -1190,9 +1474,28 @@ Model {
     }
     Block {
       BlockType		      Reference
+      Name		      "Slider\nGain1"
+      Ports		      [1, 1]
+      Position		      [300, 520, 330, 550]
+      SourceBlock	      "simulink/Math\nOperations/Slider\nGain"
+      SourceType	      "Slider Gain"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      low		      "0"
+      gain		      "0.7"
+      high		      "2"
+    }
+    Block {
+      BlockType		      Reference
       Name		      "Spectrum\nAnalyzer"
       Ports		      [2]
-      Position		      [1450, 97, 1480, 128]
+      Position		      [1575, 97, 1605, 128]
       SourceBlock	      "simulink_extras/Additional\nSinks/Spectrum\nAna"
 "lyzer"
       SourceType	      "Spectrum Analyzer"
@@ -1220,7 +1523,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Subsystem"
-	Location		[1445, 168, 1969, 381]
+	Location		[1268, 179, 1860, 395]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1236,13 +1539,13 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "In1"
-	  Position		  [25, 45, 55, 59]
+	  Position		  [25, 43, 55, 57]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "In2"
-	  Position		  [40, 225, 70, 239]
+	  Position		  [40, 223, 70, 237]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
@@ -1538,8 +1841,9 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "Out1"
-	  Position		  [600, 90, 630, 104]
+	  Position		  [600, 88, 630, 102]
 	  IconDisplay		  "Port number"
+	  BusOutputAsStruct	  off
 	}
 	Line {
 	  SrcBlock		  "Mult"
@@ -1667,6 +1971,11 @@ Model {
       Name		      "alpha"
       Position		      [55, 295, 85, 325]
     }
+    Block {
+      BlockType		      Constant
+      Name		      "alpha1"
+      Position		      [45, 520, 75, 550]
+    }
     Line {
       SrcBlock		      "Random\nSource"
       SrcPort		      1
@@ -1697,7 +2006,7 @@ Model {
     Line {
       SrcBlock		      "Integer Delay"
       SrcPort		      1
-      Points		      [80, 0]
+      Points		      [205, 0]
       DstBlock		      "Spectrum\nAnalyzer"
       DstPort		      1
     }
@@ -1747,7 +2056,7 @@ Model {
     Line {
       SrcBlock		      "AddSub"
       SrcPort		      1
-      DstBlock		      "Down Sample"
+      DstBlock		      "Delay1"
       DstPort		      1
     }
     Line {
@@ -1767,7 +2076,7 @@ Model {
     Line {
       SrcBlock		      "Delay"
       SrcPort		      1
-      Points		      [20, 0]
+      Points		      [35, 0]
       Branch {
 	Points			[0, -10]
 	DstBlock		"AddSub1"
@@ -1784,7 +2093,7 @@ Model {
       SrcPort		      1
       Points		      [5, 0]
       Branch {
-	Points			[30, 0; 0, -45]
+	Points			[50, 0; 0, -45]
 	DstBlock		"AddSub1"
 	DstPort			2
       }
@@ -1809,8 +2118,141 @@ Model {
     Line {
       SrcBlock		      "AddSub2"
       SrcPort		      1
-      Points		      [35, 0; 0, -30]
+      Points		      [20, 0; 0, -30]
       DstBlock		      "Mult1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Mux"
+      SrcPort		      1
+      Points		      [20, 0]
+      Branch {
+	Points			[0, -285]
+	DstBlock		"Mult"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, 5]
+	DstBlock		"Out1"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Mux1"
+      SrcPort		      1
+      Points		      [35, 0; 0, -5]
+      Branch {
+	DstBlock		"Mult1"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, 30]
+	DstBlock		"Out2"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "alpha1"
+      SrcPort		      1
+      DstBlock		      "Slider\nGain1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Slider\nGain1"
+      SrcPort		      1
+      Points		      [200, 0]
+      DstBlock		      "A in1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Constant"
+      SrcPort		      1
+      Points		      [30, 0]
+      Branch {
+	Points			[155, 0]
+	Branch {
+	  Points		  [0, -15]
+	  DstBlock		  "Mux"
+	  DstPort		  2
+	}
+	Branch {
+	  Points		  [0, 150]
+	  DstBlock		  "Mux1"
+	  DstPort		  3
+	}
+      }
+      Branch {
+	Points			[0, 75]
+	DstBlock		"Relational"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "A in1"
+      SrcPort		      1
+      Points		      [5, 0]
+      Branch {
+	DstBlock		"Relational"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 110]
+	DstBlock		"AddSub3"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, -25]
+	DstBlock		"Mux"
+	DstPort			3
+      }
+    }
+    Line {
+      SrcBlock		      "Relational"
+      SrcPort		      1
+      Points		      [230, 0]
+      Branch {
+	Points			[0, -110]
+	DstBlock		"Mux"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 20]
+	DstBlock		"Mux1"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Constant1"
+      SrcPort		      1
+      Points		      [25, 0; 0, 35]
+      DstBlock		      "AddSub3"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "AddSub3"
+      SrcPort		      1
+      Points		      [20, 0; 0, -25]
+      DstBlock		      "Mux1"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Delay1"
+      SrcPort		      1
+      DstBlock		      "Down Sample"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Out1"
+      SrcPort		      1
+      Points		      [10, 0; 0, 20]
+      DstBlock		      "Display"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Out2"
+      SrcPort		      1
+      Points		      [25, 0; 0, 40]
+      DstBlock		      "Display1"
       DstPort		      1
     }
   }
