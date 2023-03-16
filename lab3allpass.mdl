@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.40"
+    ComputedModelVersion    "1.41"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -44,8 +44,8 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "student"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Mar 09 15:52:47 2023"
-  ModelVersionFormat	  "1.%<AutoIncrement:40>"
+  LastModifiedDate	  "Thu Mar 16 17:01:20 2023"
+  ModelVersionFormat	  "1.%<AutoIncrement:41>"
   ConfigurationManager	  "None"
   SimulationMode	  "normal"
   LinearizationMsg	  "none"
@@ -609,7 +609,7 @@ Model {
   }
   System {
     Name		    "lab3allpass"
-    Location		    [823, 109, 1777, 1003]
+    Location		    [513, 288, 1760, 1182]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
